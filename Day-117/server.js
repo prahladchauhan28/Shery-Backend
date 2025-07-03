@@ -6,10 +6,12 @@ app.use(express.json()); // To parse JSON request body
 const notes=[];
 
 app.post("/notes",(req,res)=>{
-
     const {title,description}=req.body;
     notes.push({title,description});
-    res.send(notes);
+    res.json({
+        "message":"note created successfully",
+        notes:notes
+    })
     console.log(notes);
     
 })
