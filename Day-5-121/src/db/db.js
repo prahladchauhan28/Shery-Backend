@@ -1,11 +1,17 @@
 const mongoose=require("mongoose");
+const dotenv=require("dotenv");
+dotenv.config();
 
 function connectToDb()
 {
-   mongoose.connect("mongodb+srv://PrahladChauhan:8hQHPKVcH08tic8u@cohort.louhf2k.mongodb.net/cohort")
+   mongoose.connect(process.env.MONGO_URI)
    .then(()=>{
-    console.log("Connented to DB !");
+       console.log("Connected to DB !");
    })
+   .catch((err)=>{
+       console.log("DB connection failed !");
+       console.error(err);
+   });
 }
 
 module.exports=connectToDb;

@@ -1,5 +1,6 @@
 const express=require("express");
 const connectToDb =require("./src/db/db");
+const dotenv=require("dotenv")
 
 
 const app=express();
@@ -16,6 +17,6 @@ app.post("/notes",(req,res)=>{
     res.send("note created")
 })
 
-app.listen(3000,()=>{
+app.listen(process.env.PORT,()=>{
     console.log("server running at port 3000 ");
 })
