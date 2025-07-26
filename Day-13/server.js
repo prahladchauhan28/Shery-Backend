@@ -1,6 +1,6 @@
-const { json } = require("express");
 const app=require("./src/app");
 const ConnectToDB=require("./src/db/db")
+require('dotenv').config()
 
 
 ConnectToDB();
